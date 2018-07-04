@@ -1,0 +1,333 @@
+root@Creator:/# ./lab6_0660402
+START
+server create and attach the share memory
+waiting other process write the share memory...
+server read characters from share memory...
+client attach the share memory created by server
+        >> 1 1 protect by 0
+
+thread num 1
+
+client write path info to the share memory
+client detach the share memory
+(1, 1)-->(2, 1): 1 [(1, 1)-->(2, 1)]
+        1 1 ...doodle... 2 1, 5 secs
+        >> REQUEST SERVE
+client attach the share memory created by server
+        >> 2 1 lock by 0
+        >> REQUEST SERVE
+client attach the share memory created by server
+        >> 5 5 protect by 1
+
+thread num 2
+
+client write path info to the share memory
+client detach the share memory
+(5, 5)-->(2, 5): 3 [(5, 5)-->(2, 5)]
+        5 5 ...doodle... 2 5, 5 secs
+        >> REQUEST SERVE
+client attach the share memory created by server
+        >> 7 1 lock by 0
+        >> REQUEST SERVE
+        1 1 ...doodle... 2 1, 4 secs
+        5 5 ...doodle... 2 5, 4 secs
+        1 1 ...doodle... 2 1, 3 secs
+        5 5 ...doodle... 2 5, 3 secs
+        1 1 ...doodle... 2 1, 2 secs
+        5 5 ...doodle... 2 5, 2 secs
+        1 1 ...doodle... 2 1, 1 secs
+        5 5 ...doodle... 2 5, 1 secs
+        >> UBER BACK
+
+thread num 1
+
+        >> UBER BACK
+        >> 5 5 0 release here 1
+0:      task name: COND,        task priority: 2,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 3,       task rank: 0 (0, 0) -> (0, 0)
+2:      task name: COND,        task priority: 1,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 0
+
+
+thread num 1
+
+client write path info to the share memory
+client detach the share memory
+(2, 1)-->(2, 2): 1 [(2, 1)-wait->(2, 2)]
+        2 1 ...doodle... 2 1, 5 secs
+client attach the share memory created by server
+        >> 3 5 protect by 2
+
+thread num 2
+
+client write path info to the share memory
+client detach the share memory
+(3, 5)-->(2, 3): 3 [(3, 5)-->(2, 5)-->(2, 3)]
+        3 5 ...doodle... 2 5, 5 secs
+        >> REQUEST SERVE
+client attach the share memory created by server
+        >> 8 5 lock by 2
+        >> REQUEST SERVE
+        2 1 ...doodle... 2 1, 4 secs
+        3 5 ...doodle... 2 5, 4 secs
+        2 1 ...doodle... 2 1, 3 secs
+        3 5 ...doodle... 2 5, 3 secs
+        2 1 ...doodle... 2 1, 2 secs
+        3 5 ...doodle... 2 5, 2 secs
+        2 1 ...doodle... 2 1, 1 secs
+        3 5 ...doodle... 2 5, 1 secs
+        >> UBER BACK
+
+thread num 1
+
+        >> UBER BACK
+
+thread num 0
+
+
+thread num 1
+
+client write path info to the share memory
+client detach the share memory
+(7, 1)-->(2, 7): 11 [(7, 1)-wait->(2, 1)-->(2, 7)]
+        7 1 ...doodle... 2 1, 5 secs
+
+thread num 2
+
+client write path info to the share memory
+client detach the share memory
+(8, 5)-->(2, 8): 9 [(8, 5)-wait->(2, 5)-->(2, 8)]
+        8 5 ...doodle... 2 5, 5 secs
+client attach the share memory created by server
+        >> 4 6 protect by 3
+
+thread num 3
+
+client write path info to the share memory
+client detach the share memory
+(4, 6)-->(2, 4): 4 [(4, 6)-->(2, 6)-->(2, 4)]
+        4 6 ...doodle... 2 6, 5 secs
+        >> REQUEST SERVE
+        7 1 ...doodle... 2 1, 4 secs
+        8 5 ...doodle... 2 5, 4 secs
+        4 6 ...doodle... 2 6, 4 secs
+        7 1 ...doodle... 2 1, 3 secs
+        8 5 ...doodle... 2 5, 3 secs
+        4 6 ...doodle... 2 6, 3 secs
+        7 1 ...doodle... 2 1, 2 secs
+        8 5 ...doodle... 2 5, 2 secs
+        4 6 ...doodle... 2 6, 2 secs
+        7 1 ...doodle... 2 1, 1 secs
+        8 5 ...doodle... 2 5, 1 secs
+        4 6 ...doodle... 2 6, 1 secs
+        >> UBER BACK
+        >> 7 1 0 release here 0
+0:      task name: COND,        task priority: 1,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 0,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 2
+
+        >> UBER BACK
+        >> 8 5 0 release here 2
+0:      task name: COND,        task priority: 1,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 0,       task rank: 0 (0, 0) -> (0, 0)
+2:      task name: COND,        task priority: 2,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 1
+
+        >> UBER BACK
+        >> 4 6 0 release here 3
+0:      task name: COND,        task priority: 1,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 0,       task rank: 0 (0, 0) -> (0, 0)
+2:      task name: COND,        task priority: 2,       task rank: 0 (0, 0) -> (0, 0)
+3:      task name: COND,        task priority: 3,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 0
+
+5 5 9 9
+client attach the share memory created by server
+        >> 5 5 protect by 1
+
+thread num 1
+
+client write path info to the share memory
+client detach the share memory
+(5, 5)-->(9, 9): 8 [(5, 5)-->(9, 5)-->(9, 9)]
+        5 5 ...doodle... 9 5, 5 secs
+        >> REQUEST SERVE
+        5 5 ...doodle... 9 5, 4 secs
+        5 5 ...doodle... 9 5, 3 secs
+        5 5 ...doodle... 9 5, 2 secs
+5 5     5 5 ...doodle... 9 5, 1 secs
+4 4
+client attach the share memory created by server
+        >> 5 5 protect by 0
+
+thread num 2
+
+client write path info to the share memory
+client detach the share memory
+(5, 5)-->(4, 4): 2 [(5, 5)-->(4, 5)-->(4, 4)]
+        5 5 ...doodle... 4 5, 5 secs
+        >> REQUEST SERVE
+        >> UBER BACK
+        >> 5 5 0 release here 1
+0:      task name: COND,        task priority: 2,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 3,       task rank: 0 (0, 0) -> (0, 0)
+2:      task name: COND,        task priority: 1,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 1
+
+        5 5 ...doodle... 4 5, 4 secs
+        5 5 ...doodle... 4 5, 3 secs
+        5 5 ...doodle... 4 5, 2 secs
+        5 5 ...doodle... 4 5, 1 secs
+        >> UBER BACK
+        >> 5 5 0 release here 0
+0:      task name: COND,        task priority: 2,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 3,       task rank: 0 (0, 0) -> (0, 0)
+2:      task name: COND,        task priority: 1,       task rank: 0 (0, 0) -> (0, 0)
+3:      task name: COND,        task priority: 0,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 0
+
+1 4 5 7
+client attach the share memory created by server
+        >> 1 4 protect by 2
+
+thread num 1
+
+client write path info to the share memory
+client detach the share memory
+(1, 4)-->(5, 7): 7 [(1, 4)-->(5, 4)-->(5, 7)]
+        1 4 ...doodle... 5 4, 5 secs
+        >> REQUEST SERVE
+        1 4 ...doodle... 5 4, 4 secs
+0 1     1 4 ...doodle... 5 4, 3 secs
+ 4      1 4 ...doodle... 5 4, 2 secs
+7
+client attach the share memory created by server
+        >> 0 1 protect by 3
+
+thread num 2
+
+client write path info to the share memory
+client detach the share memory
+(0, 1)-->(4, 7): 10 [(0, 1)-->(4, 1)-->(4, 7)]
+        0 1 ...doodle... 4 1, 5 secs
+        >> REQUEST SERVE
+        1 4 ...doodle... 5 4, 1 secs
+        0 1 ...doodle... 4 1, 4 secs
+        >> UBER BACK
+        >> 1 4 0 release here 2
+0:      task name: COND,        task priority: 1,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 0,       task rank: 0 (0, 0) -> (0, 0)
+2:      task name: COND,        task priority: 2,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 1
+
+        0 1 ...doodle... 4 1, 3 secs
+5       0 1 ...doodle... 4 1, 2 secs
+ 6 7    0 1 ...doodle... 4 1, 1 secs
+ 8
+client attach the share memory created by server
+        >> 5 6 protect by 1
+
+thread num 2
+
+client write path info to the share memory
+client detach the share memory
+(5, 6)-->(7, 8): 4 [(5, 6)-->(7, 6)-->(7, 8)]
+        5 6 ...doodle... 7 6, 5 secs
+        >> REQUEST SERVE
+        >> UBER BACK
+        >> 0 1 0 release here 3
+0:      task name: COND,        task priority: 0,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 2,       task rank: 0 (0, 0) -> (0, 0)
+2:      task name: COND,        task priority: 3,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 1
+
+        5 6 ...doodle... 7 6, 4 secs
+        5 6 ...doodle... 7 6, 3 secs
+        5 6 ...doodle... 7 6, 2 secs
+control center
+ => (1, 1)-->(2, 1): 1 [(1, 1)-->(2, 1)]
+(5, 5)-->(2, 5): 3 [(5, 5)-->(2, 5)]
+(1, 1)-->(2, 1): 1 [(1, 1)-->(2, 1)]
+(5, 5)-->(2, 5): 3 [(5, 5)-->(2, 5)]
+(2, 1)-->(2, 2): 1 [(2, 1)-wait->(2, 2)]
+(3, 5)-->(2, 3): 3 [(3, 5)-->(2, 5)-->(2, 3)]
+(7, 1)-->(2, 7): 11 [(7, 1)-wait->(2, 1)-->(2, 7)]
+(8, 5)-->(2, 8): 9 [(8, 5)-wait->(2, 5)-->(2, 8)]
+(4, 6)-->(2, 4): 4 [(4, 6)-->(2, 6)-->(2, 4)]
+(5, 5)-->(9, 9): 8 [(5, 5)-->(9, 5)-->(9, 9)]
+(5, 5)-->(4, 4): 2 [(5, 5)-->(4, 5)-->(4, 4)]
+(1, 4)-->(5, 7): 7 [(1, 4)-->(5, 4)-->(5, 7)]
+(0, 1)-->(4, 7): 10 [(0, 1)-->(4, 1)-->(4, 7)]
+(5, 6)-->(7, 8): 4 [(5, 6)-->(7, 6)-->(7, 8)]
+
+        5 6 ...doodle... 7 6, 1 secs
+        >> UBER BACK
+        >> 5 6 0 release here 1
+0:      task name: COND,        task priority: 0,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 2,       task rank: 0 (0, 0) -> (0, 0)
+2:      task name: COND,        task priority: 3,       task rank: 0 (0, 0) -> (0, 0)
+3:      task name: COND,        task priority: 1,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 0
+
+1 4 5 6
+client attach the share memory created by server
+        >> 1 4 protect by 0
+
+thread num 1
+
+client write path info to the share memory
+client detach the share memory
+(1, 4)-->(5, 6): 6 [(1, 4)-->(5, 4)-->(5, 6)]
+        1 4 ...doodle... 5 4, 5 secs
+        >> REQUEST SERVE
+        1 4 ...doodle... 5 4, 4 secs
+        1 4 ...doodle... 5 4, 3 secs
+7 7     1 4 ...doodle... 5 4, 2 secs
+ 8 9    1 4 ...doodle... 5 4, 1 secs
+
+client attach the share memory created by server
+        >> 7 7 protect by 2
+
+thread num 2
+
+client write path info to the share memory
+client detach the share memory
+(7, 7)-->(8, 9): 3 [(7, 7)-->(8, 7)-->(8, 9)]
+        7 7 ...doodle... 8 7, 5 secs
+        >> REQUEST SERVE
+        >> UBER BACK
+        >> 1 4 0 release here 0
+0:      task name: COND,        task priority: 3,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 1,       task rank: 0 (0, 0) -> (0, 0)
+2:      task name: COND,        task priority: 0,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 1
+
+        7 7 ...doodle... 8 7, 4 secs
+        7 7 ...doodle... 8 7, 3 secs
+        7 7 ...doodle... 8 7, 2 secs
+        7 7 ...doodle... 8 7, 1 secs
+        >> UBER BACK
+        >> 7 7 0 release here 2
+0:      task name: COND,        task priority: 3,       task rank: 0 (0, 0) -> (0, 0)
+1:      task name: COND,        task priority: 1,       task rank: 0 (0, 0) -> (0, 0)
+2:      task name: COND,        task priority: 0,       task rank: 0 (0, 0) -> (0, 0)
+3:      task name: COND,        task priority: 2,       task rank: 0 (0, 0) -> (0, 0)
+
+thread num 0
+
+control center
+ => (1, 4)-->(5, 6): 6 [(1, 4)-->(5, 4)-->(5, 6)]
+(7, 7)-->(8, 9): 3 [(7, 7)-->(8, 7)-->(8, 9)]
+
+control center
+ =>

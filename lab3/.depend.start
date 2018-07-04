@@ -1,0 +1,2 @@
+TARGETS = run_lab2.sh
+INTERACTIVE =
